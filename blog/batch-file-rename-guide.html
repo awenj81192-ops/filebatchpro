@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>批量重命名文件的最全攻略（新手必看）</title>
+    <meta name="description" content="一份写给新手的批量重命名文件完整攻略：从Windows自带改名到专业工具，6种方法手把手教学。涵盖添加前缀后缀、查找替换、序号编号、正则表达式等核心技巧。" />
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, "Microsoft YaHei", sans-serif; background: #f0f2f5; color: #333; line-height: 1.8; }
+        .top-nav { background: #2563eb; padding: 12px 20px; text-align: center; }
+        .top-nav a { color: white; text-decoration: none; font-size: 14px; opacity: 0.9; }
+        .top-nav a:hover { opacity: 1; text-decoration: underline; }
+        .article-hero { background: linear-gradient(135deg, #2563eb, #7c3aed); color: white; padding: 50px 20px; text-align: center; }
+        .article-hero h1 { font-size: 34px; margin-bottom: 10px; }
+        .article-hero .meta { font-size: 14px; opacity: 0.8; }
+        .container { max-width: 800px; margin: 0 auto; padding: 30px 20px 60px; }
+        .article-body { background: white; border-radius: 12px; padding: 36px 32px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        .article-body h2 { font-size: 22px; color: #2563eb; margin: 32px 0 14px; border-left: 4px solid #2563eb; padding-left: 12px; }
+        .article-body h3 { font-size: 18px; color: #444; margin: 24px 0 10px; }
+        .article-body p { margin-bottom: 16px; font-size: 15px; color: #444; }
+        .article-body ul, .article-body ol { margin: 10px 0 16px 22px; }
+        .article-body li { margin-bottom: 6px; font-size: 15px; color: #444; }
+        .article-body .highlight { background: #eef2ff; border-radius: 8px; padding: 16px 20px; margin: 20px 0; border-left: 4px solid #2563eb; }
+        .article-body .highlight strong { color: #2563eb; }
+        .article-body .code-box { background: #1e1e2e; color: #cdd6f4; border-radius: 8px; padding: 12px 16px; margin: 10px 0; font-family: Consolas, monospace; font-size: 13px; overflow-x: auto; }
+        .article-body .step-num { display: inline-block; background: #2563eb; color: white; width: 28px; height: 28px; border-radius: 50%; text-align: center; line-height: 28px; font-weight: bold; margin-right: 8px; }
+        .cta-box { text-align: center; background: linear-gradient(135deg, #eef2ff, #f5f3ff); border-radius: 12px; padding: 32px 20px; margin-top: 36px; }
+        .cta-box h3 { font-size: 20px; margin-bottom: 8px; }
+        .cta-box p { font-size: 14px; color: #666; margin-bottom: 16px; }
+        .cta-box .btn { display: inline-block; background: #2563eb; color: white; padding: 12px 40px; border-radius: 8px; font-size: 16px; text-decoration: none; }
+        .cta-box .btn:hover { background: #1d4ed8; }
+        footer { text-align: center; padding: 30px; color: #999; font-size: 13px; }
+    </style>
+</head>
+<body>
+    <div class="top-nav">
+        <a href="https://awenj.ccwu.cc">← 返回 FileBatch Pro 首页</a>
+    </div>
+    <div class="article-hero">
+        <h1>批量重命名文件的最全攻略（新手必看）</h1>
+        <div class="meta">2026年5月更新 · 预计阅读 9 分钟</div>
+    </div>
+    <div class="container">
+        <div class="article-body">
+
+<p>"我明明记得文件名是'工作报告_v2'，结果怎么找都找不到，最后发现当初改成了'最终版_v3'..." 类似的尴尬时刻，相信每个职场人都经历过。文件命名看似小事，但在实际工作中，面对几十上百个文件需要规范化命名时，手动改名的效率低到令人崩溃。</p>
+
+<p>这篇文章写给所有想系统学习批量重命名的朋友。从Windows自带方法到专业工具，从基础操作到进阶技巧，一篇讲透。读完你就能从容应对任何批量改名场景。</p>
+
+<h2>一、Windows自带批量重命名（零基础入门）</h2>
+
+<p>不用装任何软件，Windows本身就提供了几种批量改名方式：</p>
+
+<p><strong>方法1：全选后重命名</strong></p>
+<p>选中多个文件，右键点击"重命名"，输入一个名称后回车。系统会自动给文件加上序号，变成"名称 (1)"、"名称 (2)"、"名称 (3)"…… 这个方法最简单，但功能有限——你无法自定义起始编号，格式也只有固定的"(1)、(2)"。</p>
+
+<p><strong>方法2：PowerShell进阶改名</strong></p>
+<p>对技术用户来说，PowerShell提供了更灵活的方式。例如给所有图片添加前缀"2026_":</p>
+<div class="code-box">Get-ChildItem *.jpg | Rename-Item -NewName { "2026_" + $_.Name }</div>
+<p>替换文件名中的特定文字：</p>
+<div class="code-box">Get-ChildItem *.pdf | Rename-Item -NewName { $_.Name -replace "草稿","正式版" }</div>
+<p>但PowerShell需要记命令语法，对大多数普通用户来说学习成本较高。</p>
+
+<h2>二、使用专业工具批量重命名（推荐）</h2>
+
+<p>对于大多数用户，使用一款图形化界面的专业工具是最省心的选择。下面以几个主流工具为例介绍操作流程。</p>
+
+<h3>核心操作一：添加统一前缀/后缀</h3>
+<p>这是最常用的场景——给一批文件统一加上项目名称或日期前缀。比如把所有照片加上"2026年会_"前缀。</p>
+<p>在FileBatch Pro中操作：选择文件夹 → 点击"批量重命名"标签 → 选择"添加前缀" → 输入"2026年会_" → 预览效果 → 确认执行。一共6步，10秒钟完成。</p>
+
+<h3>核心操作二：查找替换文字</h3>
+<p>公司改名了、项目名变了、或者想统一术语，查找替换功能一键搞定。比如将文件名中的"v1"全部替换为"v2"。</p>
+<p>FileBatch Pro支持精确匹配替换，不会误改其他内容。替换前可以在预览列表中看到改名前后的对比，确认无误再执行。相比一个个手动改，效率和安全性都高得多。</p>
+
+<h3>核心操作三：序号自动编号</h3>
+<p>照片扫描件、发票PDF、课件材料需要按顺序编号时，手动添序号太慢。自动编号功能支持自定义起始值（比如从01开始而不是1）、编号位数（001、01、1三种格式），还可以结合前缀/后缀一起使用。</p>
+<p>例如你想要的效果："产品图_001.jpg"、"产品图_002.jpg"...
+在FileBatch Pro中，选择"添加后缀" + "序号编号"，设置起始值为1、位数为3位、前缀为"产品图_"，一键搞定。</p>
+
+<h3>核心操作四：按扩展名筛选</h3>
+<p>一个文件夹里混着JPG、PNG、PDF各种文件，你只想改其中一种格式的文件。FileBatch Pro支持按扩展名筛选——只选中你想改的类型，其他文件不受影响。这个功能在处理混合文件夹时特别实用。</p>
+
+<h2>三、进阶技巧：正则表达式</h2>
+
+<p>当文件命名规则比较复杂时，正则表达式是最强大的工具。比如你想要提取文件名中的日期部分重新排序，或者删除括号中的内容，正则表达式可以在几秒钟内完成复杂的文本匹配和替换。</p>
+<p>例如：将"2026-05-20_会议纪要.docx"改为"会议纪要_2026-05-20.docx"</p>
+<div class="code-box">匹配: (\d{4}-\d{2}-\d{2})_(.+)
+替换: $2_$1</div>
+<p>FileBatch Pro目前支持基本的查找替换和序号编号，满足日常95%的需求。如果你需要频繁使用正则表达式处理复杂命名规则，可以搭配Advanced Renamer使用，但它的价格（$38）对普通用户来说偏高。</p>
+
+<h2>四、安全须知：别把文件改坏了</h2>
+
+<p>批量改名最怕的是改完后发现乱了，恢复不了。请务必遵守以下安全规则：</p>
+<ul>
+    <li><strong>先预览再执行</strong>：所有正规工具都有预览功能，改名前一定要看一遍</li>
+    <li><strong>做好备份</strong>：重要的文件文件夹先复制一份再操作</li>
+    <li><strong>注意扩展名</strong>：不要误改.jpg、.docx等后缀，否则文件可能打不开</li>
+    <li><strong>支持撤销</strong>：FileBatch Pro支持撤销操作，万一改错了可以撤回。这是很多免费工具不具备的功能。</li>
+</ul>
+
+<h2>五、总结：推荐学习路径</h2>
+
+<p>如果你是新手，建议按以下路径逐步学习：</p>
+<ol>
+    <li><strong>第一天</strong>：学会Windows自带的全选重命名法</li>
+    <li><strong>第一周</strong>：下载FileBatch Pro，掌握添加前缀/后缀和查找替换</li>
+    <li><strong>第一个月</strong>：学会序号编号和按扩展名筛选的组合使用</li>
+    <li><strong>进阶</strong>：了解正则表达式的基本语法，应对复杂场景</li>
+</ol>
+
+<div class="highlight">
+    <strong>新手推荐：</strong>FileBatch Pro（¥19.9永久）功能全面、操作简单、支持撤销，最适合零基础用户一步到位。等你用熟了基本操作，再根据需要深入了解更高级的功能。
+</div>
+
+<p>批量重命名不是一个每天都要的操作，但每当需要的时候，用对了工具能节省几小时的时间。希望这份攻略能帮你建立对批量重命名的完整认知，从此告别手动改名的痛苦。</p>
+
+            <div class="cta-box">
+                <h3>试试 FileBatch Pro</h3>
+                <p>批量重命名 + 图片压缩 + 文件归类，新手也能轻松上手。永久使用仅¥19.9。</p>
+                <a class="btn" href="https://awenj.ccwu.cc">了解更多 →</a>
+                <p style="margin-top:10px;font-size:13px;color:#999;">支持撤销操作，改名更安心</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <a href="https://awenj.ccwu.cc" style="color:#999;text-decoration:none;">FileBatch Pro</a> · © 2026 版权所有
+    </footer>
+</body>
+</html>
