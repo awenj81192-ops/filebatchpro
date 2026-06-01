@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FileBatch Pro - 文件批量处理工具箱</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, "Microsoft YaHei", sans-serif; background: #f0f2f5; color: #333; }
+        .hero { background: linear-gradient(135deg, #2563eb, #7c3aed); color: white; padding: 60px 20px; text-align: center; }
+        .hero h1 { font-size: 42px; margin-bottom: 12px; }
+        .hero p { font-size: 18px; opacity: 0.9; }
+        .hero .price { margin-top: 24px; font-size: 36px; font-weight: bold; }
+        .hero .price span { font-size: 16px; font-weight: normal; opacity: 0.8; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-bottom: 40px; }
+        .feature { background: white; border-radius: 12px; padding: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        .feature h3 { font-size: 20px; margin-bottom: 10px; color: #2563eb; }
+        .feature p { font-size: 14px; color: #666; line-height: 1.8; }
+        .feature ul { margin-top: 10px; padding-left: 18px; font-size: 14px; color: #555; line-height: 1.8; }
+        .cta { text-align: center; padding: 40px; background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        .cta .price-big { font-size: 48px; color: #2563eb; font-weight: bold; }
+        .cta p { color: #666; margin: 12px 0 20px; }
+        .cta .btn { display: inline-block; background: #2563eb; color: white; padding: 14px 48px; border-radius: 8px; font-size: 18px; text-decoration: none; }
+        .cta .btn:hover { background: #1d4ed8; }
+        .faq { margin-top: 40px; }
+        .faq h2 { margin-bottom: 20px; }
+        .faq-item { background: white; border-radius: 8px; padding: 16px 20px; margin-bottom: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
+        .faq-item h4 { font-size: 15px; margin-bottom: 6px; }
+        .faq-item p { font-size: 14px; color: #666; }
+        footer { text-align: center; padding: 30px; color: #999; font-size: 13px; }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>FileBatch Pro</h1>
+        <p>文件批量处理工具箱 — 重命名 · 压缩 · 归类，一键搞定</p>
+        <div class="price">¥19.9 <span>永久使用</span></div>
+    </div>
+
+    <div class="container">
+        <div class="features">
+            <div class="feature">
+                <h3>批量重命名</h3>
+                <ul>
+                    <li>添加前缀/后缀</li>
+                    <li>查找替换文字</li>
+                    <li>序号自动编号</li>
+                    <li>按扩展名筛选</li>
+                    <li>预览后再执行</li>
+                </ul>
+            </div>
+            <div class="feature">
+                <h3>图片批量压缩</h3>
+                <ul>
+                    <li>自定义压缩质量</li>
+                    <li>限制最大尺寸</li>
+                    <li>支持JPG/PNG/BMP/WEBP</li>
+                    <li>智能缩放保持比例</li>
+                    <li>平均压缩60%体积</li>
+                </ul>
+            </div>
+            <div class="feature">
+                <h3>文件自动归类</h3>
+                <ul>
+                    <li>按文件类型归类</li>
+                    <li>按年份归类</li>
+                    <li>按月份归类</li>
+                    <li>自动处理重名冲突</li>
+                    <li>支持所有常见格式</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cta">
+            <h2>现在购买</h2>
+            <div class="price-big">¥19.9</div>
+            <p>一次购买，永久使用 · Windows 7/8/10/11 均可运行</p>
+            <a class="btn" href="#">立即购买（联系卖家）</a>
+            <p style="margin-top: 12px; font-size: 13px; color: #999;">付款后通过网盘/邮件发送</p>
+        </div>
+
+        <div class="faq">
+            <h2>常见问题</h2>
+            <div class="faq-item">
+                <h4>需要安装Python或其他环境吗？</h4>
+                <p>完全不需要。FileBatch Pro 是独立可执行文件，双击即可运行。</p>
+            </div>
+            <div class="faq-item">
+                <h4>会损坏原文件吗？</h4>
+                <p>重命名和归类只改变文件名/位置，不修改内容。图片压缩会创建新文件，原图不受影响。</p>
+            </div>
+            <div class="faq-item">
+                <h4>支持多少文件？</h4>
+                <p>支持任意数量，已测试10000+文件稳定运行。</p>
+            </div>
+            <div class="faq-item">
+                <h4>有试用版吗？</h4>
+                <p>目前是正式版直接发售，售价仅19.9元，支持无理由退款。</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        FileBatch Pro v1.0 | © 2026 版权所有
+    </footer>
+</body>
+</html>
