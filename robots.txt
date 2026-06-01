@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://awenj.ccwu.cc/sitemap.xml
